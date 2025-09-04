@@ -1,0 +1,40 @@
+﻿<Window x:Class="ContractMonthlyClaimsSystem.ClaimStatusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Claim Status - Contact Monthly CLaims System"
+        Height="450" Width="800">
+
+    <Grid Background ="#f9f9f9" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height ="Auto"/>
+        </Grid.RowDefinitions>
+        <!--Header-->
+        <TextBlock Text="Claim Status"
+                   FontSize="20" FontWeight="Bold"
+                   Foreground="#2c3e50"
+                   HorizontalAlignment="Center"
+                   Margin="0,10,0,20"/>
+        <!--claims list-->
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Claim ID" Width="100" Binding="{Binding ClaimID}"/>
+                <DataGridTextColumn Header="Month" Width="120" Binding="{Binding Month}"/>
+                <DataGridTextColumn Header="Hours" Width="80" Binding="{Binding HoursWorked}"/>
+                <DataGridTextColumn Header="Rate" Width="80" Binding="{Binding HoursRate}"/>
+                <DataGridTextColumn Header="Total" Width="100" Binding="{Binding TotalAmount}"/>
+                <DataGridTextColumn Header="Status" Width="120" Binding="{Binding Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--Buttons-->
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    HorizontalAlignment="Center" Margin="0,10">
+            <Button Content="Refresh" Width="120" Height="35"
+                    Background="#3498db" Foreground="White" FontWeight="Bold" Margin="10,0"/>
+            <Button Content="Close" Width="120" Height="35"
+                    Background="#e74c3c" Foreground="White" FontWeight="Bold" Margin="10,0"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
