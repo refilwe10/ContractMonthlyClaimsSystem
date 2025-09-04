@@ -40,7 +40,8 @@
                     Width="100" Height="35"
                         Background="#3498db" Foreground="White"
                     FontWeight="Bold"
-                    HorizontalAlignment="Center" Margin="0,12,0,0"/>
+                    HorizontalAlignment="Center" Margin="0,12,0,0"
+                    Click="LoginButton_Click"/>
 
             
 </StackPanel>
