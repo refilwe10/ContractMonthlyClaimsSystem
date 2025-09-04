@@ -19,11 +19,11 @@
                    Margin="0,10"/>
         
         <!--Form-->
-        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="40,20,40,20" Spacing="10">
-            <Label Content="Lectures ID"/>
-            <TextBox Height="28"/>
-            <Label Content="Month"/>
-            <ComboBox Height="28">
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="40,20,40,20">
+            <Label Content="Lectures ID" Margin="0,0,0,10"/>
+            <TextBox Height="28" Margin="0,0,0,10"/>
+            <Label Content="Month" Margin="0,0,0,10"/>
+            <ComboBox Height="28" Margin="0,0,0,10" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBoxItem Content="January"/>
                 <ComboBoxItem Content="February"/>
                 <ComboBoxItem Content="March"/>
