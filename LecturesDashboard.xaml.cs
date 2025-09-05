@@ -14,14 +14,21 @@ using System.Windows.Shapes;
 
 namespace ContractMonthlyClaimsSystem
 {
-    /// <summary>
-    /// Interaction logic for LecturesDashboard.xaml
-    /// </summary>
+
     public partial class LecturesDashboard : Window
     {
         public LecturesDashboard()
         {
             InitializeComponent();
+
+            // Fake data for demonstration purposes
+            var claims = new List<dynamic>
+            {
+                new { ClaimID = 1, Date = "2025-09-01", HoursWorked = 20, Status = "Pending" },
+                new { ClaimID = 2, Date = "2025-09-02", HoursWorked = 15, Status = "Approved" }
+            };
+
+            ClaimsDateGrid.ItemsSource = claims;
         }
     }
 }

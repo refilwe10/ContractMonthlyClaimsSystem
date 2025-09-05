@@ -30,7 +30,7 @@
         <PasswordBox Height="30" Width="250" HorizontalAlignment="Center"></PasswordBox>
 
             <Label Content="Role" FontWeight="SemiBold" Margin="0,8,0,0"/>
-            <ComboBox Height="30" Width="250" HorizontalAlignment="Center">
+            <ComboBox  x:Name="RoleComboBox" Height="30" Width="250" HorizontalAlignment="Center">
                 <ComboBoxItem Content="Lecturer"/>
                 <ComboBoxItem Content="Coordinator"/>
                 <ComboBoxItem Content="Manager"/>
