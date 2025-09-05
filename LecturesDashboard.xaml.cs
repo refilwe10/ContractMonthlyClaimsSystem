@@ -28,7 +28,7 @@ namespace ContractMonthlyClaimsSystem
                 new { ClaimID = 2, Date = "2025-09-02", HoursWorked = 15, Status = "Approved" }
             };
 
-            ClaimsDateGrid.ItemsSource = claims;
+            ClaimDateGrid.ItemsSource = claims;
         }
     }
 }
