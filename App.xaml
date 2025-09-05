@@ -4,6 +4,28 @@
              xmlns:local="clr-namespace:ContractMonthlyClaimsSystem"
              StartupUri="LoginWindow.xaml">
     <Application.Resources>
-         
+
+        <!-- Colors -->
+        <SolidColorBrush x:Key="PrimaryColor" Color="#2D89EF"/><!-- Blue -->
+        <SolidColorBrush x:Key="SecondaryColor" Color="#FFFFFF"/> <!-- White -->
+        <SolidColorBrush x:Key="AccentColor" Color="#F39C12"/> <!-- Orange -->
+
+        <!-- Fonts -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+
     </Application.Resources>
 </Application>
