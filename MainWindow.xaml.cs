@@ -39,5 +39,11 @@ namespace ContractMonthlyClaimsSystem
             var reviewWindow = new ClaimReviewWindow();
             reviewWindow.Show();
         }
+        private void OpenStatusWindow_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var statusWindow = new ClaimStatusWindow();
+            statusWindow.Show();
+        }
     }
 }
