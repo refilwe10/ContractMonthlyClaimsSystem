@@ -21,15 +21,17 @@ namespace ContractMonthlyClaimsSystem
 
         private void RecalculateTotal(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            if (decimal.TryParse(HoursWorkedBox.Text, out decimal hours) &&
-                decimal.TryParse(HourlyRateBox.Text, out decimal rate))
-            {
-                TotalBox.Text = (hours * rate).ToString("0.00");
-            }
+            if (decimal.TryParse(HoursWorkedBox.Text, out decimal hours) && !string.IsNullOrEmpty(HourlyRateBox.Text) )
+                HoursWorkedBox.BorderBrush = System.Windows.Media.Brushes.Red;
+            
+               
             else
-            {
-                TotalBox.Text = string.Empty;
-            }
+            HoursWorkedBox.ClearValue(System.Windows.Controls.Border.BorderBrushProperty);
+
+            if (!decimal.TryParse(HourlyRateBox.Text, out _) && !string.IsNullOrEmpty(HoursWorkedBox.Text))
+                HourlyRateBox.BorderBrush = System.Windows.Media.Brushes.Red;
+            else
+                HourlyRateBox.ClearValue(System.Windows.Controls.Border.BorderBrushProperty);
         }
 
         private void Upload_Click(object sender, RoutedEventArgs e)
