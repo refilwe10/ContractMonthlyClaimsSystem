@@ -8,5 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
+
+        <Button Content="Review Pending Claims" Width="170" Height="35" Click="OpenReviewWindow_Click"/>
     </Grid>
 </Window>
