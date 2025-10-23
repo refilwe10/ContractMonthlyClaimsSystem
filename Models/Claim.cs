@@ -16,15 +16,26 @@ namespace ContractMonthlyClaimsSystem.Models
     public class Claim
     {
         public int ClaimId { get; set; }
-        public string LectureId { get; set; }
+        public string LecturerId { get; set; } = string.Empty;
         public decimal HoursWorked { get; set; }
-       public decimal HourlyRate { get; set; }
+        public decimal HourlyRate { get; set; }
         public decimal TotalAmount { get; set; }
         public string? Notes { get; set; }
         public string? AttachmentPath { get; set; }
-        public ClaimStatus? Status { get; set; } = ClaimStatus.Pending;
+        public string SupportingDocumentPath { get; set; } = string.Empty;
+        public ClaimStatus Status { get; set; } = ClaimStatus.Pending;
+
+
         public DateTime DateSubmitted { get; set; } = DateTime.Now;
+        public string SupportingDocumentName { get; set; }
+        public string FilePath { get; set; }
 
 
     }
-}
+        }
+    
+
+
+
+
+

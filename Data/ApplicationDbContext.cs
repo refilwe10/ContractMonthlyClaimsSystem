@@ -12,14 +12,14 @@ namespace ContractMonthlyClaimsSystem.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            if (!optionsBuilder.IsConfigured)
+            if (!options.IsConfigured)
             {
-                // SQLite database file stored locally in the app folder
-                optionsBuilder.UseSqlite("Data Source=claims.db");
+                options.UseSqlite("Data Source=claims.db"); // ✅ your local DB file
             }
-
         }
     }
 }
+
+    
