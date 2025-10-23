@@ -24,5 +24,24 @@ namespace ContractMonthlyClaimsSystem
         public ClaimStatusWindow()
         {
             InitializeComponent();
+            LoadLecturerClaims();
+        }
 
+        private void LoadLecturerClaims()
+        {
+            using var db = new ApplicationDbContext();
+            db.Database.EnsureCreated();
+
+            
+            var lecturerId = System.Environment.UserName;
+
+            var claims = db.Claims
+                .Where(c => c.LecturerId == lecturerId)
+                .OrderByDescending(c => c.DateSubmitted)
+                .ToList();
+
+            LecturerClaimsGrid.ItemsSource = claims;
+        }
+    }
+}
 
