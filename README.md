@@ -14,7 +14,7 @@ Programme Coordinators and Academic Managers can verify and approve or reject cl
 - Admin Dashboard for approving/rejecting claims  
 - SQLite database integration  
 - Error handling and validation  
-- Unit testing for core logic  
+- Unit testing for core logic    
 
 ---
 
