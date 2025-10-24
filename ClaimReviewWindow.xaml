@@ -1,50 +1,63 @@
 ﻿<Window x:Class="ContractMonthlyClaimsSystem.ClaimReviewWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ContractMonthlyClaimsSystem"
-        mc:Ignorable="d"
-        Title="ClaimReviewWindow" Height="450" Width="750">
+        Title="Review Pending Claims"
+        Height="500"
+        Width="700"
+        WindowStartupLocation="CenterScreen">
 
-    <Grid Margin=" 15">
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Pending Lecturer Claims"
-                   FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+        <!-- Header -->
+        <TextBlock Text="Pending Claims Review"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,10"/>
 
-        <DataGrid x:Name="ClaimsGrid"
+        <!-- DataGrid showing all pending claims -->
+        <DataGrid x:Name="ClaimsDataGrid"
                   Grid.Row="1"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
+                  SelectionMode="Single"
                   CanUserAddRows="False"
-                  SelectionMode="Single">
+                  Margin="0,5,0,10">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ClaimId}" Width="50"/>
-                <DataGridTextColumn Header="Lecturer" Binding="{Binding LecturerId}" Width="100"/>
-                <DataGridTextColumn Header="Hours" Binding="{Binding HoursWorked}" Width="70"/>
-                <DataGridTextColumn Header="Rate" Binding="{Binding HourlyRate}" Width="80"/>
-                <DataGridTextColumn Header="Total" Binding="{Binding TotalAmount}" Width="90"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="90"/>
-                <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="180"/>
-
-                <!-- Approve/Reject buttons -->
-                <DataGridTemplateColumn Header="Actions" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Content="Approve" Width="70" Margin="2"
-                                        Click="Approve_Click"/>
-                                <Button Content="Reject" Width="70" Margin="2"
-                                        Click="Reject_Click"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Claim ID" Binding="{Binding ClaimId}" Width="100"/>
+                <DataGridTextColumn Header="Lecturer" Binding="{Binding LecturerName}" Width="150"/>
+                <DataGridTextColumn Header="Hours Worked" Binding="{Binding HoursWorked}" Width="120"/>
+                <DataGridTextColumn Header="Total (ZAR)" Binding="{Binding TotalAmount}" Width="120"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Approve"
+                    Width="100"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Click="Approve_Click"/>
+            <Button Content="Reject"
+                    Width="100"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Click="Reject_Click"/>
+            <Button Content="Refresh"
+                    Width="100"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Click="Refresh_Click"/>
+            <Button Content="Close"
+                    Width="100"
+                    Height="35"
+                    Click="Close_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

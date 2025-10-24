@@ -5,46 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContractMonthlyClaimsSystem"
         mc:Ignorable="d"
-        Title="LecturesDashboard" Height="450" Width="800">
-    
+        Title="Lecturer Dashboard"
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterScreen">
 
     <Grid Background="#f9f9f9" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height ="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <!--Header-->
-        <TextBlock Text="Lecturer Dashboard"
-               FontSize="20" FontWeight="Bold"
-               Foreground="#2c3e50"
-               HorizontalAlignment="Center"
-               Margin="0,10,0,20"/>
 
-        <!--claims list-->
-        <DataGrid x:Name="ClaimDateGrid" AutoGenerateColumns="False"
-                  Height="200" Width="350" Margin="10" Grid.Row="1">
+        <!-- Header -->
+        <TextBlock Text="Lecturer Dashboard"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="#2c3e50"
+                   HorizontalAlignment="Center"
+                   Margin="0,10,0,20"/>
+
+        <!-- Claims List -->
+        <DataGrid x:Name="ClaimsDataGrid"
+                  AutoGenerateColumns="False"
+                  Height="250"
+                  Width="750"
+                  Grid.Row="1"
+                  Margin="0,0,0,10"
+                  IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Claim ID" Width="100" Binding="{Binding ClaimID}"/>
-                <DataGridTextColumn Header="Month" Width="120" Binding="{Binding Month}"/>
-                <DataGridTextColumn Header="Hours" Width="80" Binding="{Binding HoursWorked}"/>
-                <DataGridTextColumn Header="Rate" Width="80" Binding="{Binding HoursRate}"/>
-                <DataGridTextColumn Header="Total" Width="100" Binding="{Binding TotalAmount}"/>
-                <DataGridTextColumn Header="Status" Width="120" Binding="{Binding Status}"/>
+                <DataGridTextColumn Header="Claim ID" Binding="{Binding ClaimId}" Width="80"/>
+                <DataGridTextColumn Header="Hours" Binding="{Binding HoursWorked}" Width="80"/>
+                <DataGridTextColumn Header="Rate" Binding="{Binding HourlyRate}" Width="80"/>
+                <DataGridTextColumn Header="Total (ZAR)" Binding="{Binding TotalAmount}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <!--Buttons-->
-        <StackPanel Grid.Row="2" Orientation="Horizontal"
-                HorizontalAlignment="Center" Margin="0,10">
-            <Button Content="Submit New Claim" Width="150" Height="35"
-                Background="#3498db" Foreground="White" FontWeight="Bold" Margin="10,0"/>
-            <Button Content="Upload Documents" Width="150" Height="35"
-                Background="#2ecc71" Foreground="White" FontWeight="Bold" Margin="10,0"/>
-            <Button Content="Logout" Width="150" Height="35"
-    Background="#e74c3c" Foreground="White" FontWeight="Bold" Margin="10,0"/>
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,0">
+            <Button Content="Submit New Claim"
+                    Width="150"
+                    Height="35"
+                    Background="#3498db"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    Margin="10,0"
+                    Click="OpenClaimWindow_Click"/>
 
+            <Button Content="Upload Documents"
+                    Width="150"
+                    Height="35"
+                    Background="#2ecc71"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    Margin="10,0"
+                    Click="UploadDocument_Click"/>
+
+            <Button Content="Logout"
+                    Width="150"
+                    Height="35"
+                    Background="#e74c3c"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    Margin="10,0"
+                    Click="Logout_Click"/>
         </StackPanel>
-
     </Grid>
 </Window>

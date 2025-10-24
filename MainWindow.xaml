@@ -18,22 +18,21 @@
                        TextAlignment="Center"
                        Margin="0,0,0,20"/>
 
-            <!-- Button to open Lecturer Claim Submission -->
+            <!-- Lecturer submits a claim -->
             <Button Content="Submit New Claim"
                     Height="40"
                     FontSize="14"
                     Margin="0,0,0,10"
                     Click="OpenClaimWindow_Click"/>
 
-            <!-- Button to open Coordinator Review Window -->
+            <!-- Coordinator reviews claims -->
             <Button Content="Review Pending Claims"
                     Height="40"
                     FontSize="14"
                     Margin="0,0,0,10"
                     Click="OpenReviewWindow_Click"/>
 
-            <Button Content="Review Pending Claims" Width="170" Height="35" Click="OpenReviewWindow_Click"/>
-            
+            <!-- Lecturer checks claim status -->
             <Button Content="Track My Claims"
                     Height="40"
                     FontSize="14"
@@ -41,7 +40,14 @@
                     Click="OpenStatusWindow_Click"/>
 
 
-            <!-- Exit button -->
+            <Button Content="Review Pending Claims"
+                      Height="40"
+                      FontSize="14"
+                      Margin="0,0,0,10"
+                      Click="OpenReviewWindow_Click"/>
+
+
+            <!-- Exit the application -->
             <Button Content="Exit"
                     Height="40"
                     FontSize="14"
@@ -49,3 +55,4 @@
         </StackPanel>
     </Grid>
 </Window>
+

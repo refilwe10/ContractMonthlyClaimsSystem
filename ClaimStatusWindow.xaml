@@ -5,31 +5,8 @@
         Height="400" Width="650"
         WindowStartupLocation="CenterScreen">
 
-    <Grid Margin="15">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <TextBlock Text="My Claim Status"
-                   FontWeight="Bold" FontSize="18" Margin="0,0,0,15"/>
-
-        <DataGrid x:Name="LecturerClaimsGrid"
-                  Grid.Row="1"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Claim ID" Binding="{Binding ClaimId}" Width="80"/>
-                <DataGridTextColumn Header="Hours" Binding="{Binding HoursWorked}" Width="80"/>
-                <DataGridTextColumn Header="Rate" Binding="{Binding HourlyRate}" Width="80"/>
-                <DataGridTextColumn Header="Total" Binding="{Binding TotalAmount}" Width="80"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
-                <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="180"/>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
     <Window.Resources>
+        <!-- Row color styles based on claim status -->
         <Style TargetType="DataGridRow">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Status}" Value="Approved">
@@ -37,11 +14,41 @@
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Status}" Value="Rejected">
                     <Setter Property="Background" Value="LightCoral"/>
-                    </DataTrigger>
+                </DataTrigger>
                 <DataTrigger Binding="{Binding Status}" Value="Pending">
                     <Setter Property="Background" Value="LightYellow"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="My Claim Status"
+                   FontWeight="Bold"
+                   FontSize="18"
+                   Margin="0,0,0,15"/>
+
+        <DataGrid x:Name="LecturerClaimsGrid"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  AlternatingRowBackground="#F3F3F3"
+                  GridLinesVisibility="Horizontal"
+                  RowHeaderWidth="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Claim ID" Binding="{Binding ClaimId}" Width="80"/>
+                <DataGridTextColumn Header="Hours" Binding="{Binding HoursWorked}" Width="80"/>
+                <DataGridTextColumn Header="Rate (ZAR)" Binding="{Binding HourlyRate}" Width="100"/>
+                <DataGridTextColumn Header="Total (ZAR)" Binding="{Binding TotalAmount}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="180"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </Window>
